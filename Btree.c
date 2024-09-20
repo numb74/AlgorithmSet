@@ -11,7 +11,7 @@ typedef struct BTNode {
 // 先序中序后序遍历二叉树(递归)
 void pre_print(BTtree T) {
   if (T) {
-    printf("%d", T->data);
+    printf("%d\n", T->data);
     pre_print(T->lchild);
     pre_print(T->rchild);
   }
@@ -19,7 +19,7 @@ void pre_print(BTtree T) {
 void in_print(BTtree T) {
   if (T) {
     in_print(T->lchild);
-    printf("%d", T->data);
+    printf("%d\n", T->data);
     in_print(T->rchild);
   }
 }
@@ -27,7 +27,7 @@ void last_print(BTtree T) {
   if (T) {
     last_print(T->lchild);
     last_print(T->rchild);
-    printf("%d", T->data);
+    printf("%d\n", T->data);
   }
 }
 // 创建节点函数用于构造
