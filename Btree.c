@@ -42,7 +42,17 @@ BTNode *createNode(ElemType value) {
   newNode->rchild = NULL;
   return newNode;
 }
-
+// 计算二叉树中所有节点个数
+// 递归实现,首先判断是否该节点是否为空
+int count(BTtree T) {
+  if (T == NULL) {
+    return 0;
+  } else {
+    int m = count(T->lchild);
+    int n = count(T->rchild);
+    return m + n + 1;
+  }
+}
 int main() {
 
   BTNode *root = createNode(10);         // 创建根节点
@@ -61,6 +71,8 @@ int main() {
 
    */
 
-  pre_print(root);
+  // pre_print(root);
+  int result = count(root);
+  printf("%d\n", result);
   return 0;
 }
