@@ -53,6 +53,16 @@ int count(BTtree T) {
     return m + n + 1;
   }
 }
+// 仍为计算总节点数,但通过指针+递归实现
+void _count(BTtree T, int *n) {
+  if (T == NULL) {
+    return;
+  } else {
+    (*n)++;
+    _count(T->lchild, n);
+    _count(T->rchild, n);
+  }
+}
 int main() {
 
   BTNode *root = createNode(10);         // 创建根节点
@@ -72,7 +82,11 @@ int main() {
    */
 
   // pre_print(root);
-  int result = count(root);
-  printf("%d\n", result);
+
+  // int result = count(root);
+  // printf("%d\n", result);
+  int n = 0;
+  _count(root, &n);
+  printf("%d\n", n);
   return 0;
 }
